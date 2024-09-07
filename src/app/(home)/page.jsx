@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Footer from 'componatnt/footer/footer';
 import Header from 'componatnt/header/header';
 import Products from './products';
+import Loading from './loading';
+import { Suspense } from 'react';
 
 
 
@@ -32,8 +34,12 @@ export default function Home() {
     <FontAwesomeIcon style={{width:"1rem"}} icon={faCheck}/>
       Recommended for you
     </h1>
-    
-  <Products/>
+
+  <Suspense fallback={<Loading/>}> 
+  <
+// @ts-ignore
+  Products/>
+  </Suspense> 
 
   </main>
 

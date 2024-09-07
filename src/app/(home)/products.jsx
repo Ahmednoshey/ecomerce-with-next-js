@@ -3,76 +3,67 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
 
-const myproducts = [
-  {
-    title: "Product Title",
-    description: "Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex tempore dolor in, accusantium laudantium accusamus.",
-    image: "./images/1.png",
-    price: 100
-  },
-  {
-    title: "Product Title",
-    description: "Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex tempore dolor in, accusantium laudantium accusamus.",
-    image: "./images/2.webp",
-    price: 100
-  },
-  {
-    title: "Product Title",
-    description: "Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex tempore dolor in, accusantium laudantium accusamus.",
-    image: "./images/3.webp",
-    price: 100
-  },
-  {
-    title: "Product Title",
-    description: "Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex tempore dolor in, accusantium laudantium accusamus.",
-    image: "./images/4.webp",
-    price: 100
-  },
-  {
-    title: "Product Title",
-    description: "Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex tempore dolor in, accusantium laudantium accusamus.",
-    image: "./images/5.webp",
-    price: 100
-  },
-  {
-    title: "Product Title",
-    description: "Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex tempore dolor in, accusantium laudantium accusamus.",
-    image: "./images/6.webp",
-    price: 100
-  },
-  {
-    title: "Product Title",
-    description: "Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex tempore dolor in, accusantium laudantium accusamus.",
-    image: "./images/7.webp",
-    price: 100
-  },
-  {
-    title: "Product Title",
-    description: "Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex tempore dolor in, accusantium laudantium accusamus.",
-    image: "./images/8.png",
-    price: 100
-  },
+
+// const myproducts = [
+//   {
+//     title: "Product Title",
+//     description: "Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex tempore dolor in, accusantium laudantium accusamus.",
+//     image: "./images/1.png",
+//     price: 100
+//   },
+//   {
+//     title: "Product Title",
+//     description: "Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex tempore dolor in, accusantium laudantium accusamus.",
+//     image: "./images/2.webp",
+//     price: 100
+//   },
+//   {
+//     title: "Product Title",
+//     description: "Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex tempore dolor in, accusantium laudantium accusamus.",
+//     image: "./images/3.webp",
+//     price: 100
+//   },
+//   {
+//     title: "Product Title",
+//     description: "Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex tempore dolor in, accusantium laudantium accusamus.",
+//     image: "./images/4.webp",
+//     price: 100
+//   },
+//   {
+//     title: "Product Title",
+//     description: "Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex tempore dolor in, accusantium laudantium accusamus.",
+//     image: "./images/5.webp",
+//     price: 100
+//   },
+//   {
+//     title: "Product Title",
+//     description: "Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex tempore dolor in, accusantium laudantium accusamus.",
+//     image: "./images/6.webp",
+//     price: 100
+//   },
+//   {
+//     title: "Product Title",
+//     description: "Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex tempore dolor in, accusantium laudantium accusamus.",
+//     image: "./images/7.webp",
+//     price: 100
+//   },
+//   {
+//     title: "Product Title",
+//     description: "Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex tempore dolor in, accusantium laudantium accusamus.",
+//     image: "./images/8.png",
+//     price: 100
+//   },
   
 
-]
+// ]
 
-
-// async function getData() {
-//   let res = await fetch('https://fakestoreapi.com/products')
-
-//   if (!res.ok) {
-    
-//     throw new Error("Failed To Fetch Data");
-    
-//   }
-//   return res.json
-// }
 
 
 const Products = async() => {
+    await new Promise(resolve => setTimeout(resolve, 5000))
   let data = await fetch('https://fakestoreapi.com/products')
   let products = await data.json()
-  console.log(products)
+
   
   return (
     <section className="products flex">
