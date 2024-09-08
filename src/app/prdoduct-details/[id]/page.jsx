@@ -4,10 +4,16 @@ import React from 'react';
 import  './product-details.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { notFound } from 'next/navigation';
 
-const Page = async({params}) => {
+
+
+
+ 
+const Page = async ({params}) => {
   let data = await fetch(`https://fakestoreapi.com/products/${params.id}`)
   let selectproduct = await data.json()
+
   return (
     <div style={{
       height: "100vh",
@@ -36,4 +42,5 @@ const Page = async({params}) => {
     </div>
   );
 }
+
 export default Page;
