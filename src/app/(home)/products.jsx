@@ -80,7 +80,7 @@ const Products = async() => {
         </div>
         </Link>
 
-        <div style={{ width: 266 }} className="content">
+        <div style={{ width: 300 }} className="content">
           <h1 className="title">{item.title.slice(0,20)}....</h1>
           <p className="description">
             {item.description.slice(0,100)}....
