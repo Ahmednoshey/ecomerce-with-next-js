@@ -7,11 +7,13 @@ import Link from 'next/link';
 const Header = () => {
   return (
     <header id="headerElement" className="flex">
+      <Link href="/">
     <div className="logo">
     <FontAwesomeIcon style={{width:"1rem"}} icon={faBagShopping}/>
       <span style={{ fontWeight: "bold" }}>AWU</span>
       <p style={{ letterSpacing: "0.5px" }}>Shopping</p>
     </div>
+    </Link>
     <nav className="links">
       <Link
         style={{ position: "relative" }}

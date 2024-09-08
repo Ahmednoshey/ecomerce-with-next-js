@@ -1,3 +1,4 @@
+// @ts-nocheck
 
 import './home.css';
 import {faCheck } from '@fortawesome/free-solid-svg-icons';
@@ -30,15 +31,13 @@ export default function Home() {
     </section>
   </div>
   <main className="">
-    <h1 className="recommended">
-    <FontAwesomeIcon style={{width:"1rem"}} icon={faCheck}/>
+    <h1 className="recommended flex">
+    <FontAwesomeIcon style={{width:"1rem", marginRight:"10px", marginLeft:"10px"}} icon={faCheck}/>
       Recommended for you
     </h1>
 
   <Suspense fallback={<Loading/>}> 
-  <
-// @ts-ignore
-  Products/>
+  <Products/>
   </Suspense> 
 
   </main>

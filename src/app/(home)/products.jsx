@@ -1,5 +1,6 @@
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 import React from 'react';
 
 
@@ -60,11 +61,10 @@ import React from 'react';
 
 
 const Products = async() => {
-    await new Promise(resolve => setTimeout(resolve, 5000))
+  await new Promise(resolve => setTimeout(resolve, 5000))
   let data = await fetch('https://fakestoreapi.com/products')
   let products = await data.json()
 
-  
   return (
     <section className="products flex">
     
@@ -74,9 +74,9 @@ const Products = async() => {
 
         <article key={item.image} title={item.title}
         className="card">
-        <a href="/pages/product-details.html">
+        <Link href={`/prdoduct-details/${item.id}`}>
           <img width={266} height={400} src={item.image} alt=""/>
-        </a>
+        </Link>
         <div style={{ width: 266 }} className="content">
           <h1 className="title">{item.title.slice(0,20)}....</h1>
           <p className="description">
