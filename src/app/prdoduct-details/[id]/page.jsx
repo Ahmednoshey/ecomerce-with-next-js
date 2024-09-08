@@ -4,9 +4,17 @@ import React from 'react';
 import  './product-details.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
-import { notFound } from 'next/navigation';
 
 
+export async function generateMetadata ({ params }) {
+  let data = await fetch(`https://fakestoreapi.com/products/${params.id}`)
+  let selectproduct = await data.json()
+  return {
+    title: selectproduct.title,
+    description: selectproduct.description,
+    
+  };
+}
 
 
  
