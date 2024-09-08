@@ -2,7 +2,7 @@ import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import React from 'react';
-
+import Image from 'next/image'
 
 
 // const myproducts = [
@@ -74,9 +74,12 @@ const Products = async() => {
 
         <article key={item.image} title={item.title}
         className="card">
-        <Link href={`/prdoduct-details/${item.id}`}>
-          <img width={266} height={400} src={item.image} alt=""/>
+          <Link href={`/prdoduct-details/${item.id}`}>
+          <div style={{position: "relative"}} className='imgcontainer'>
+          <Image fill src={item.image} alt=""/>
+        </div>
         </Link>
+
         <div style={{ width: 266 }} className="content">
           <h1 className="title">{item.title.slice(0,20)}....</h1>
           <p className="description">

@@ -4,7 +4,7 @@ import React from 'react';
 import  './product-details.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
-
+import Image from 'next/image'
 
 export async function generateMetadata ({ params }) {
   let data = await fetch(`https://fakestoreapi.com/products/${params.id}`)
@@ -31,7 +31,11 @@ const Page = async ({params}) => {
     }}>
     <Header/>
     <main style={{ textAlign: "center" }} className="flex" title={selectproduct.title}>
-  <img alt="" src={selectproduct.image} />
+
+      <div style={{position:"relative"}} className='img-container'>
+      <Image alt="" src={selectproduct.image} fill quality={100}/>
+      </div>
+      
   <div className="product-details">
     <div style={{ justifyContent: "space-between" }} className="flex">
       <h2>{selectproduct.title.slice(0,15)}....</h2>

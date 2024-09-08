@@ -36,10 +36,13 @@ main.flex {
   border-radius: 0.4rem;
   background-color: var(--white);
 
-  & img {
+}
+
+  & .img-container {
     width: 40%;
     border-radius: 0.4rem;
-    height: 350px;
+    height: 260px;
+    margin: 10px;
   }
 
   & .price {
@@ -50,6 +53,7 @@ main.flex {
 
   & .product-details {
     margin-inline: 1.1rem;
+    margin-top: 20px;
   }
 
   & .description {
@@ -57,6 +61,7 @@ main.flex {
     margin-block: 1.2rem;
     line-height: 1.44rem;
     text-wrap: balance;
+    width: 400px;
   }
 
   & .add-to-cart {
@@ -72,7 +77,7 @@ main.flex {
   & .fa-cart-plus {
     color: var(--white);
   }
-}
+
 
 @media (width < 800px) {
   main.flex {
@@ -80,10 +85,12 @@ main.flex {
     /* width: 90%; */
     margin-top: 50px;
 
-    & img {
+  }
+    & .img-container {
       margin-inline: auto;
       width: 260px;
-      height: 300px;
+      height: 260px;
+      margin-top: 50px;
     }
 
     .product-details {
@@ -91,4 +98,4 @@ main.flex {
       margin-bottom: 1.3rem;
     }
   }
-}
+
