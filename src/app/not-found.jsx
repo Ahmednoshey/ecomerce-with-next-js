@@ -31,7 +31,7 @@ const NotFound = () => {
       <div className="wave-2" />
       <div className="wave-1" />
       <div className="wave-message">
-        <p>Your're lost</p>
+        <p>Your are lost</p>
         <p>Click on the island to return</p>
       </div>
     </div>
