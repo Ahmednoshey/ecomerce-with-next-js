@@ -7,19 +7,25 @@ const RegisterForm = () => {
   const [Email, setEmail] = useState(null);
   const [Password, setPassword] = useState(null);
 
-  const userRigester = {
-   Name,
-  Email,
-   Password
-  }
 
-  return (
-    <form onSubmit={(eo) => {
-    eo.preventDefault()
-  console.log(userRigester);
 
 
 
+  return (
+    <form onSubmit={ async (eo) => {
+      eo.preventDefault()
+      const response = await fetch("api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ Name, Email, Password }),
+      });
+
+      console.log(response);
+      if (response.ok) {
+        console.log("done!!!!!");
+      }
     }} style={{ textAlign: "left" }}>
       <div className="mb-4">
         <label htmlFor="username" className="form-label">
