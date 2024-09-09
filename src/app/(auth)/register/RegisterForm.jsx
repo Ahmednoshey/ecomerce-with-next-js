@@ -25,6 +25,7 @@ const RegisterForm = () => {
       console.log(response);
       if (response.ok) {
         console.log("done!!!!!");
+        // @ts-ignore
         eo.target.reset()
       }
     }} style={{ textAlign: "left" }}>
