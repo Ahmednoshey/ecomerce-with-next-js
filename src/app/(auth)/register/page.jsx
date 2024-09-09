@@ -1,7 +1,7 @@
-import Footer from 'componatnt/footer/footer';
+
 import Header from 'componatnt/header/header';
 import React from 'react';
-import  './register.css';
+
 
 
 export const metadata = {
@@ -13,7 +13,7 @@ const Page = () => {
   return (
     <>
 
-  <Header/>  
+    <Header isRegister={true}/>
 
     <main className="px-3">
   <form style={{ textAlign: "left" }}>
@@ -61,10 +61,7 @@ const Page = () => {
   </form>
 </main>
 
-<Footer/>
-
-
-    </>
+</>
   );
 }
 

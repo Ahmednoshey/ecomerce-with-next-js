@@ -23,7 +23,8 @@ const Page = async ({params}) => {
   let selectproduct = await data.json()
 
   return (
-    <div style={{
+    <div className="productdetails"
+    style={{
       height: "100vh",
   display: "grid",
   alignItems: "center",

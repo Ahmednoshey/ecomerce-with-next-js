@@ -1,7 +1,6 @@
-import Footer from 'componatnt/footer/footer';
+
 import Header from 'componatnt/header/header';
 import React from 'react';
-import  './signin.css';
 
 
 export const metadata = {
@@ -14,8 +13,9 @@ export const metadata = {
 
 const Page = () => {
   return (
-    <>
-<Header/>
+<>
+
+<Header isSignin={true}/>
 
 <main className="px-3">
   <form style={{ textAlign: "left" }}>
@@ -52,11 +52,8 @@ const Page = () => {
   </form>
 </main>
 
-
-
-<Footer/>
+</>
     
-    </>
   );
 }
 

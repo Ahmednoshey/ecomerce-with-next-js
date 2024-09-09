@@ -73,6 +73,7 @@ main h1.recommended {
   margin: 2.3rem 0 2rem 2%;
 }
 
+
 @media (width < 600px) {
   main h1.recommended {
     margin: 2.3rem 0 2rem 0;
