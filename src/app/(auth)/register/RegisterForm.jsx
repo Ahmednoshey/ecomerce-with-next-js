@@ -25,6 +25,7 @@ const RegisterForm = () => {
       console.log(response);
       if (response.ok) {
         console.log("done!!!!!");
+        eo.target.reset()
       }
     }} style={{ textAlign: "left" }}>
       <div className="mb-4">

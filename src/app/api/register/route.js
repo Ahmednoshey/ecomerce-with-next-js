@@ -1,3 +1,4 @@
+import UserModal from "app/DBconfig/model/user"
 import { connectMongoDB } from "app/DBconfig/mongoDB"
 import { NextResponse } from "next/server"
 
@@ -15,7 +16,11 @@ console.log(DatafromFrontEnd)
 await connectMongoDB()
 
 // try to story data in database
-
+await UserModal.create({
+  Name: DatafromFrontEnd.Name,
+  Email: DatafromFrontEnd.Email,
+  Password: DatafromFrontEnd.Password
+})
 
 
 // go back to frontEnd
