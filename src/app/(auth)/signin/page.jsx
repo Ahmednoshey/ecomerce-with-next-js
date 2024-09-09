@@ -24,6 +24,7 @@ const Page = () => {
         Email address
       </label>
       <input
+        required
         type="email"
         className="form-control"
         id="exampleInputEmail1"
@@ -35,6 +36,7 @@ const Page = () => {
         Password
       </label>
       <input
+        required
         type="password"
         className="form-control"
         id="exampleInputPassword1"
