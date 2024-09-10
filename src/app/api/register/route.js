@@ -18,8 +18,7 @@ await connectMongoDB()
 // hash password
 const salt = await bcrypt.genSalt();
 const hashedPassword = await bcrypt.hash(DatafromFrontEnd.Password, salt);
-console.log("**********************hash***********");
-console.log(hashedPassword);
+
 
 // try to story data in database
 await UserModal.create({

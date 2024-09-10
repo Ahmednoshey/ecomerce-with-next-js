@@ -30,7 +30,8 @@ export default function RootLayout({ children }) {
     alignItems: "center",
       }}
       className={` auth text-center text-bg-dark ${inter.className}`}>
-        <ToastContainer
+      {children}
+      <ToastContainer
 position="top-right"
 autoClose={5000}
 hideProgressBar={false}
@@ -42,7 +43,6 @@ draggable
 pauseOnHover
 theme="light"
 />
-      {children}
       <Footer/>
       </body>
     </html>
