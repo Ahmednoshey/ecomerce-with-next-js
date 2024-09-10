@@ -8,12 +8,40 @@ const RegisterForm = () => {
   const [Password, setPassword] = useState(null);
 
 
+  const rigister = async() => {
+    
+
+
+    
+  }
 
 
 
   return (
     <form onSubmit={ async (eo) => {
       eo.preventDefault()
+
+      // check email
+
+      const resUserExit = await fetch("api/checkEmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ Email }),
+      });
+
+      const IsUserChek = await resUserExit.json()
+      console.log("***************************************")
+      console.log(IsUserChek.user);
+
+if (IsUserChek.user) {
+  console.log("email Already exist")
+  return
+}
+
+// send data to DB
+
       const response = await fetch("api/register", {
         method: "POST",
         headers: {
