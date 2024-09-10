@@ -9,9 +9,6 @@ export async function POST(request) {
 
 // recived data from front end
 const DatafromFrontEnd = await request.json()
-console.log("******************  IS USER EXIST  *************************")
-console.log(DatafromFrontEnd)
-
 
 // connect with Database
 await connectMongoDB()
@@ -20,8 +17,7 @@ await connectMongoDB()
 const user =  await UserModal.findOne({
   Email: DatafromFrontEnd.Email,
 })
-console.log("*****************************************");
-console.log(user);
+
 // go back to frontEnd
 return NextResponse.json({user})
 
