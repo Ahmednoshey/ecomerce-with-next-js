@@ -2,6 +2,7 @@ import UserModal from "app/DBconfig/model/user";
 import { connectMongoDB } from "app/DBconfig/mongoDB";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import bcrypt from "bcrypt";
 
 export const authOptions = {
   providers: [
@@ -20,7 +21,13 @@ export const authOptions = {
         });
 
         if (user) {
-          return user;
+          //check password
+// hash password
+// @ts-ignore
+const hashedPassword = await bcrypt.compare(credentials.Password, user.Password);
+if (hashedPassword) {
+  return user;
+}        
         } else {
           return null;
         }

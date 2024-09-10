@@ -16,6 +16,8 @@ const SigninForm = () => {
     <form
       onSubmit={async (eo) => {
         eo.preventDefault();
+        setLoading(true)
+        setError(null)
 
         //inputs empty
         if (!Email || !Password) {
@@ -83,9 +85,18 @@ const SigninForm = () => {
           Check me out
         </label>
       </div>
+
       <button type="submit" className="btn btn-primary">
-        Sign in
+        {Loading? 
+        <>
+        <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span style={{marginLeft:"5px"}}>Loading...</span>
+        </>
+        : "Sign in"}
       </button>
+      <p style={{ color: "#ff7790", marginTop: "50px", textAlign: "center" ,display: "none" }}>
+        {Error}
+      </p>
     </form>
   );
 };
