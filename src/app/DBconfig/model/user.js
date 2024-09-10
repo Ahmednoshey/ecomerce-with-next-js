@@ -6,7 +6,7 @@ const models = mongoose.models;
 const userSchema = new Schema({
   Name: String,
   Email: String,
-  Password: Number,
+  Password: String,
 });
 
 // Create a model based on that schema

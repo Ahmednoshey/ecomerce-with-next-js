@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
+
 const RegisterForm = () => {
   const [Name, setName] = useState(null);
   const [Email, setEmail] = useState(null);
@@ -46,7 +47,6 @@ const RegisterForm = () => {
         }
 
         // send data to DB
-
         const response = await fetch("api/register", {
           method: "POST",
           headers: {
