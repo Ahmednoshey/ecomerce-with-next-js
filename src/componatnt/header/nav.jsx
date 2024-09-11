@@ -42,7 +42,7 @@ const Nav = ({isRegister=false, isSignin=false }) => {
   <Link style={{marginLeft:"10px"}} onClick={() => {
     signOut()
   }}
-  className={`register ${isRegister ? "border" : null }`} href="/register">
+  className={`register ${isRegister ? "border" : null }`} href="">
       <FontAwesomeIcon style={{width:"0.8rem"}} icon={faRightFromBracket}/>
         Sign out
       </Link>
