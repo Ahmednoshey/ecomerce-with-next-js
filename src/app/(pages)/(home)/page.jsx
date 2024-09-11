@@ -42,7 +42,7 @@ export default function Home() {
     {status == "unauthenticated"&&(
 
       <h3
-      style={{display:"flex", justifyContent:"center",marginBlock:"4rem"}}
+      style={{display:"flex", justifyContent:"center",marginBlock:"4rem", marginLeft:"10px"}}
       >You must be Signed in to View The Producted Content on This Page</h3>
     )}
 
