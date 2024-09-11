@@ -2,11 +2,12 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { signIn } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 
 const SigninForm = () => {
-  const [Email, setEmail] = useState(null);
+  const { data: session, status } = useSession();
+  const [email, setemail] = useState(null);
   const [Password, setPassword] = useState(null);
   const [Error, setError] = useState(null);
   const [Loading, setLoading] = useState(false);
@@ -20,7 +21,7 @@ const SigninForm = () => {
         setError(null)
 
         //inputs empty
-        if (!Email || !Password) {
+        if (!email || !Password) {
           setError("All Input Must be Filled");
           toast.error("All Input Must be Filled");
           setLoading(false);
@@ -29,7 +30,7 @@ const SigninForm = () => {
 
         // check email and password to signin
         const res = await signIn("credentials", {
-          Email,
+          email,
           Password,
           redirect: false,
         });
@@ -39,6 +40,7 @@ const SigninForm = () => {
           toast.error("Invailed Email or Password");
           setLoading(false);
         } else {
+          router.replace("/")
           setError("Wellcome");
           toast.success("Wellcome");
           setLoading(false);
@@ -52,7 +54,7 @@ const SigninForm = () => {
         </label>
         <input
           onChange={(eo) => {
-            setEmail(eo.target.value);
+            setemail(eo.target.value);
           }}
           required
           type="email"
@@ -97,6 +99,7 @@ const SigninForm = () => {
       <p style={{ color: "#ff7790", marginTop: "50px", textAlign: "center" ,display: "none" }}>
         {Error}
       </p>
+  
     </form>
   );
 };

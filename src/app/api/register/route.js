@@ -22,8 +22,8 @@ const hashedPassword = await bcrypt.hash(DatafromFrontEnd.Password, salt);
 
 // try to story data in database
 await UserModal.create({
-  Name: DatafromFrontEnd.Name,
-  Email: DatafromFrontEnd.Email,
+  name: DatafromFrontEnd.name,
+  email: DatafromFrontEnd.email,
   Password: hashedPassword,
 })
 

@@ -17,7 +17,7 @@ export const authOptions = {
         // try to story data in database
         const user = await UserModal.findOne({
           // @ts-ignore
-          Email: credentials.Email,
+          email: credentials.email,
         });
 
         if (user) {

@@ -1,5 +1,5 @@
 // @ts-nocheck
-
+"use client";
 import './home.css';
 import {faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,11 +8,12 @@ import Header from 'componatnt/header/header';
 import Products from './products';
 import Loading from './loading';
 import { Suspense } from 'react';
-
+import {useSession } from "next-auth/react";
 
 
 
 export default function Home() {
+  const { data: session, status } = useSession();
   return (
     
     <>
@@ -36,13 +37,24 @@ export default function Home() {
       Recommended for you
     </h1>
 
+    {status == "loading"&&(<Loading/>)}
+
+    {status == "unauthenticated"&&(
+
+      <h3
+      style={{display:"flex", justifyContent:"center",marginBlock:"4rem"}}
+      >You must be Signed in to View The Producted Content on This Page</h3>
+    )}
+
+{status == "authenticated"&&(
   <Suspense fallback={<Loading/>}> 
   <Products/>
   </Suspense> 
-
+)}
   </main>
 
 <Footer/>
+
 </>
 
   );

@@ -1,10 +1,16 @@
+
 import React from 'react';
 import './header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBagShopping, faCartShopping, faRightToBracket, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping} from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
+import Nav from './nav';
 
-const Header = ({isRegister=false, isSignin=false }) => {
+
+
+const Header = () => {
+
+
   return (
     <header id="headerElement" className="flex">
       <Link href="/">
@@ -15,29 +21,8 @@ const Header = ({isRegister=false, isSignin=false }) => {
     </div>
     </Link>
     
-    <nav className="links">
-      <Link
-        style={{ position: "relative" }}
-        className="cart"
-        href="/cart"
-      >
-        <FontAwesomeIcon style={{width:"0.7rem"}} icon={faCartShopping}/>
-        $0.00
-        <span className="products-number">2</span>
-      </Link>
+  <Nav/>
 
-      <Link className={`sign-in ${isSignin ? "border" : null }`} href="/signin">
-      <FontAwesomeIcon style={{width:"0.7rem"}} icon={faRightToBracket}/>
-        Sign in
-      </Link>
-
-      <Link className={`register ${isRegister ? "border" : null }`} href="/register">
-      <FontAwesomeIcon style={{width:"0.8rem"}} icon={faUserPlus}/>
-        <i className="fa-solid fa-user-plus" />
-        Register
-      </Link>
-
-    </nav>
   </header>
   );
 }

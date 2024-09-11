@@ -5,8 +5,8 @@ import { toast } from "react-toastify";
 
 
 const RegisterForm = () => {
-  const [Name, setName] = useState(null);
-  const [Email, setEmail] = useState(null);
+  const [name, setname] = useState(null);
+  const [email, setemail] = useState(null);
   const [Password, setPassword] = useState(null);
   const [Error, setError] = useState(null);
   const [Loading, setLoading] = useState(false);
@@ -21,7 +21,7 @@ const RegisterForm = () => {
         setLoading(true)
         setError(null)
         //inputs empty
-        if (!Email || !Name || !Password) {
+        if (!email || !name || !Password) {
           setError("All Input Must be Filled");
           toast.error("All Input Must be Filled")
           setLoading(false)
@@ -34,7 +34,7 @@ const RegisterForm = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ Email }),
+          body: JSON.stringify({ email }),
         });
 
         const IsUserChek = await resUserExit.json();
@@ -52,7 +52,7 @@ const RegisterForm = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ Name, Email, Password }),
+          body: JSON.stringify({ name, email, Password }),
         });
 
         //Complete
@@ -78,7 +78,7 @@ const RegisterForm = () => {
         </label>
         <input
           onChange={(eo) => {
-            setName(eo.target.value);
+            setname(eo.target.value);
           }}
           required
           type="text"
@@ -93,7 +93,7 @@ const RegisterForm = () => {
         </label>
         <input
           onChange={(eo) => {
-            setEmail(eo.target.value);
+            setemail(eo.target.value);
           }}
           required
           type="email"

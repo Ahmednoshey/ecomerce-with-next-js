@@ -4,8 +4,8 @@ const models = mongoose.models;
 
 // define the Schema (the structure of the article)
 const userSchema = new Schema({
-  Name: String,
-  Email: String,
+  name: String,
+  email: String,
   Password: String,
 });
 

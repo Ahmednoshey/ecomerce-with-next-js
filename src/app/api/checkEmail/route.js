@@ -15,7 +15,7 @@ await connectMongoDB()
 
 // try to story data in database
 const user =  await UserModal.findOne({
-  Email: DatafromFrontEnd.Email,
+  email: DatafromFrontEnd.email,
 })
 
 // go back to frontEnd

@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "componatnt/footer/footer";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import AuthProvider from "app/providers/AuthProvider";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -30,6 +31,8 @@ export default function RootLayout({ children }) {
     alignItems: "center",
       }}
       className={` auth text-center text-bg-dark ${inter.className}`}>
+
+<AuthProvider>
       {children}
       <ToastContainer
 position="top-right"
@@ -44,6 +47,9 @@ pauseOnHover
 theme="light"
 />
       <Footer/>
+
+      </AuthProvider>
+      
       </body>
     </html>
   )
