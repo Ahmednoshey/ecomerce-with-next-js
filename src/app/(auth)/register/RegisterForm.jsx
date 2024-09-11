@@ -10,6 +10,7 @@ const RegisterForm = () => {
   const [Password, setPassword] = useState(null);
   const [Error, setError] = useState(null);
   const [Loading, setLoading] = useState(false);
+  const [WrongPass, setWrongPass] = useState(false);
   const router = useRouter();
 
   const rigister = async () => {};
@@ -18,6 +19,7 @@ const RegisterForm = () => {
     <form
       onSubmit={async (eo) => {
         eo.preventDefault();
+        setWrongPass(false)
         setLoading(true)
         setError(null)
         //inputs empty
@@ -26,6 +28,17 @@ const RegisterForm = () => {
           toast.error("All Input Must be Filled")
           setLoading(false)
           return;
+        }
+
+
+        //strong password
+        const regexPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!regexPass.test(Password)) {
+          setError("Password must be latest 8 characters with 1 Uppercase, 1lowercase, 1special character, 1 numer.");
+          toast.warn("Password must be latest 8 characters with 1 Uppercase, 1lowercase, 1special character, 1 numer.")
+          setWrongPass(true)
+          setLoading(false)
+          return
         }
 
         // check email
@@ -107,8 +120,10 @@ const RegisterForm = () => {
           Password
         </label>
         <input
+        style={{backgroundColor: WrongPass ? "#edadad" : null}}
           onChange={(eo) => {
             setPassword(eo.target.value);
+            setWrongPass(false)
           }}
           required
           type="password"
@@ -116,16 +131,7 @@ const RegisterForm = () => {
           id="exampleInputPassword1"
         />
       </div>
-      <div className="mb-3 form-check">
-        <input
-          type="checkbox"
-          className="form-check-input"
-          id="exampleCheck1"
-        />
-        <label className="form-check-label" htmlFor="exampleCheck1">
-          Check me out
-        </label>
-      </div>
+    
       <button type="submit" className="btn btn-primary">
         {Loading? 
         <>
