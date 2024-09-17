@@ -9,7 +9,7 @@ export async function POST(request) {
 
 // recived data from front end
 const DatafromFrontEnd = await request.json()
-console.log(DatafromFrontEnd)
+
 
 
 // connect with Database
