@@ -8,7 +8,7 @@ import Nav from './nav';
 
 
 
-const Header = () => {
+const Header = ({isRegister=false, isSignin=false, Admin=false}) => {
 
 
   return (
@@ -21,8 +21,10 @@ const Header = () => {
     </div>
     </Link>
     
-  <Nav/>
-
+  <Nav isRegister={isRegister}
+  isSignin={isSignin}
+  Admin={Admin}
+  />
   </header>
   );
 }

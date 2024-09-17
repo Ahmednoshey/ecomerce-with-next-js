@@ -1,3 +1,4 @@
+// @ts-nocheck
 
 import Header from 'componatnt/header/header';
 import React from 'react';
@@ -15,7 +16,6 @@ export const metadata = {
 const Page = () => {
   return (
 <>
-
 <Header isSignin={true}/>
 
 <main className="px-3">
