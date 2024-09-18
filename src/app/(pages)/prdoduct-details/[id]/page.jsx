@@ -5,21 +5,24 @@ import  './product-details.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image'
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata ({ params }) {
-  let data = await fetch(`https://fakestoreapi.com/products/${params.id}`)
+  let data = await fetch(`http://localhost:3000/api/getOne-product?id=${params}`)
+  if (!data.ok) {
+    notFound();
+  }
   let selectproduct = await data.json()
   return {
-    title: selectproduct.title,
-    description: selectproduct.description,
+    title: selectproduct.Title,
+    description: selectproduct.Description,
     
   };
 }
 
-
  
 const Page = async ({params}) => {
-  let data = await fetch(`https://fakestoreapi.com/products/${params.id}`)
+  let data = await fetch(`http://localhost:3000/api/getOne-product?id=${params}`)
   let selectproduct = await data.json()
 
   return (
@@ -31,19 +34,19 @@ const Page = async ({params}) => {
   gridTemplateRows: "auto 1fr auto",
     }}>
     <Header/>
-    <main style={{ textAlign: "center" }} className="flex" title={selectproduct.title}>
+    <main style={{ textAlign: "center" }} className="flex" title={selectproduct.Title}>
 
       <div style={{position:"relative"}} className='img-container'>
-      <Image alt="" src={selectproduct.image} fill quality={100}/>
+      <Image alt="" src={selectproduct.productImg} fill quality={100}/>
       </div>
       
   <div className="product-details">
     <div style={{ justifyContent: "space-between" }} className="flex">
-      <h2>{selectproduct.title.slice(0,15)}....</h2>
-      <p className="price">${selectproduct.price}</p>
+      <h2>{selectproduct.Title.slice(0,15)}....</h2>
+      <p className="price">${selectproduct.Price}</p>
     </div>
     <p className="description">
-    {selectproduct.description}
+    {selectproduct.Description}
     </p>
     <button className="flex add-to-cart">
     <FontAwesomeIcon style={{width:"1rem"}} icon={faCartPlus}/>

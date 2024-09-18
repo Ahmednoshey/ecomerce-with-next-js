@@ -4,10 +4,7 @@ module.exports = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'fakestoreapi.com',
-        port: '',
-        
+        hostname: 'res.cloudinary.com',  
       },
     ],
   },
