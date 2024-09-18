@@ -7,8 +7,8 @@ import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image'
 import { notFound } from 'next/navigation';
 
-export async function generateMetadata ({ params }) {
-  let data = await fetch(`http://localhost:3000/api/getOne-product?id=${params}`)
+export async function generateMetadata ({params}) {
+  let data = await fetch(`http://localhost:3000/api/getOne-product?id=${params.id}`)
   if (!data.ok) {
     notFound();
   }
@@ -22,7 +22,7 @@ export async function generateMetadata ({ params }) {
 
  
 const Page = async ({params}) => {
-  let data = await fetch(`http://localhost:3000/api/getOne-product?id=${params}`)
+  let data = await fetch(`http://localhost:3000/api/getOne-product?id=${params.id}`)
   if (!data.ok) {
     notFound();
   }
@@ -37,7 +37,7 @@ const Page = async ({params}) => {
   gridTemplateRows: "auto 1fr auto",
     }}>
     <Header/>
-    <main style={{ textAlign: "center" }} className="flex" title={selectproduct.Title}>
+    <main style={{ textAlign: "center"}} className="flex" title={selectproduct.Title}>
 
       <div style={{position:"relative"}} className='img-container'>
       <Image alt="" src={selectproduct.productImg} fill quality={100}/>

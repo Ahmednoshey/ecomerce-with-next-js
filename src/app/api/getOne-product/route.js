@@ -6,8 +6,9 @@ export async function GET(request) {
 // connect with Database
 await connectMongoDB()
 // get data from database
+const id = request.nextUrl.searchParams.get("id")
 const objData = await ProductsModal.findOne({
-  _id: request.nextUrl.searchParams.get("id"),
+  _id: id,
 });
 // go back to frontEnd
 return NextResponse.json(objData)

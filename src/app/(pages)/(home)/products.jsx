@@ -36,7 +36,7 @@ useEffect(() => {
       return(
         <article key={item.productImg} title={item.Title}
         className="card">
-          <Link href={`/prdoduct-details/${item.id}`}>
+          <Link href={`/prdoduct-details/${item._id}`}>
           <div style={{position: "relative"}} className='imgcontainer'>
           <Image fill src={item.productImg} alt=""/>
         </div>
