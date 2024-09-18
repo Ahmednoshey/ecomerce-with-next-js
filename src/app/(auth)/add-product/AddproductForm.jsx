@@ -39,7 +39,7 @@ const AddproductForm = () => {
          
           const response = await fetch("api/addProduct", {
             method: "POST",
-            body: FormData,
+            body: formData,
           });
     
       //Complete

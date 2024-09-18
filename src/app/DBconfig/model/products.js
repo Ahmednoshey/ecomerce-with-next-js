@@ -6,6 +6,7 @@ const userSchema = new Schema({
   Title: String,
   Price: Number,
   Description: String,
+  productImg: String,
 });
 // Create a model based on that schema
 const ProductsModal = models.Product || mongoose.model("Product", userSchema);
