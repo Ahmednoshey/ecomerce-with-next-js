@@ -23,6 +23,9 @@ export async function generateMetadata ({ params }) {
  
 const Page = async ({params}) => {
   let data = await fetch(`http://localhost:3000/api/getOne-product?id=${params}`)
+  if (!data.ok) {
+    notFound();
+  }
   let selectproduct = await data.json()
 
   return (
