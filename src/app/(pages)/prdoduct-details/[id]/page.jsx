@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata ({params}) {
-  let data = await fetch(`https://ecomerce-with-next-js.vercel.app?id=${params.id}`)
+  let data = await fetch(`https://ecomerce-with-next-js.vercel.app/api/getOne-product?id=${params.id}`)
   if (!data.ok) {
     notFound();
   }
@@ -22,7 +22,7 @@ export async function generateMetadata ({params}) {
 
  
 const Page = async ({params}) => {
-  let data = await fetch(`https://ecomerce-with-next-js.vercel.app?id=${params.id}`)
+  let data = await fetch(`https://ecomerce-with-next-js.vercel.app/api/getOne-product?id=${params.id}`)
   if (!data.ok) {
     notFound();
   }
