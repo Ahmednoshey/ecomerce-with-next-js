@@ -5,8 +5,7 @@ import {signOut, useSession } from "next-auth/react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faPlus, faRightFromBracket, faRightToBracket, faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
-import Loading from 'app/(pages)/(home)/loading';
-import { userAgent } from 'next/server';
+
 
 const Nav = ({isRegister=false, isSignin=false, Admin=false}) => {
   const { data: session, status } = useSession();
