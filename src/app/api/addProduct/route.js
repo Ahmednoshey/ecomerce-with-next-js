@@ -18,6 +18,7 @@ await ProductsModal.create({
   Price: DatafromFrontEnd.get("Price"),
   Description: DatafromFrontEnd.get("Description"),
   productImg: uploadedImg.url,
+  puplicId: uploadedImg.public_id
 })
 // go back to frontEnd
 return NextResponse.json({})

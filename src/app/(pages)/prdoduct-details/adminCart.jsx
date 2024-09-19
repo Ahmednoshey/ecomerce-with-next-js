@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation';
 import { toast } from 'react-toastify';
 import { useRouter } from "next/navigation";
 
-const AdminCart = ({productId}) => {
+const AdminCart = ({productId,puplicId}) => {
   const [Loading, setLoading] = useState(false);
   const [Error, setError] = useState(null);
   const router = useRouter();
@@ -27,9 +27,7 @@ const AdminCart = ({productId}) => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            productId
-          }),
+          body: JSON.stringify({productId,puplicId}),
         });
         //Complete
         if (response.ok) {

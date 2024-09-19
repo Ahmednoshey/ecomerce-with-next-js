@@ -60,7 +60,7 @@ const Page = async ({params}) => {
   </div>
 </main>
 
-<AdminCart productId={params.id}/>
+<AdminCart productId={params.id} puplicId={selectproduct.puplicId}/>
 
 </div>
     <Footer/>  
