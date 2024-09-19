@@ -1,20 +1,20 @@
 // @ts-nocheck
 
 import Header from 'componatnt/header/header';
-import AddproductForm from './AddproductForm';
+import UpdateproductForm from './UpdateproductForm';
 
 
 export const metadata = {
-  title: "Add-Product Page",
-  description: "Description My Add-Product Page",
+  title: "Update-Product Page",
+  description: "Description My Update-Product Page",
 };
 
-const Page = () => {
+const Page = ({params}) => {
   return (
     <>
     <Header Admin={true}/>
     <main className="px-3">
-    <AddproductForm/>
+    <UpdateproductForm productId={params.id}/>
     </main>
 
     </>

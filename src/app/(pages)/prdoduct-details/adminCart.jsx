@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { notFound } from 'next/navigation';
 import { toast } from 'react-toastify';
 import { useRouter } from "next/navigation";
+import Link from 'next/link';
 
 const AdminCart = ({productId,puplicId}) => {
   const [Loading, setLoading] = useState(false);
@@ -13,10 +14,10 @@ const AdminCart = ({productId,puplicId}) => {
   const router = useRouter();
   return (
     <div className='flex' style={{ alignItems:"center", justifyContent:"center", marginTop:"3rem"}}>
-    <button className="flex update-card">
+    <Link href={`/update-product/${productId}`} className="flex update-card">
         <FontAwesomeIcon style={{width:"1rem"}} icon={faPen}/>
           Update Product
-        </button>
+        </Link>
     
         <button className="flex delete-card" onClick={ async() => {
             setLoading(true)
