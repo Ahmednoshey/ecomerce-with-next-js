@@ -10,7 +10,7 @@ export const authOptions = {
       name: "Credentials",
 
       credentials: {},
-      async authorize(credentials, req) {
+      async authorize(credentials, req, res) {
         // connect with Database
         await connectMongoDB();
 
@@ -35,7 +35,7 @@ if (hashedPassword) {
     }),
   ],
 
-  secret: "68lalvqRDlJGUpaXnQQeIYK58eYeePkpaZIGKBVtuFI=",
+  secret: process.env.NEXTAUTH_SECRET,
 
   pages: {
     signIn: "/signin",
