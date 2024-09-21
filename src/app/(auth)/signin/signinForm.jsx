@@ -17,8 +17,8 @@ const SigninForm = () => {
     <form
       onSubmit={async (eo) => {
         eo.preventDefault();
-        setLoading(true)
-        setError(null)
+        setLoading(true);
+        setError(null);
 
         //inputs empty
         if (!email || !Password) {
@@ -40,7 +40,7 @@ const SigninForm = () => {
           toast.error("Invailed Email or Password");
           setLoading(false);
         } else {
-          router.replace("/")
+          router.replace("/");
           setError("Wellcome");
           toast.success("Wellcome");
           setLoading(false);
@@ -89,17 +89,29 @@ const SigninForm = () => {
       </div>
 
       <button type="submit" className="btn btn-primary">
-        {Loading? 
-        <>
-        <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-        <span style={{marginLeft:"5px"}}>Loading...</span>
-        </>
-        : "Sign in"}
+        {Loading ? (
+          <>
+            <span
+              className="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            <span style={{ marginLeft: "5px" }}>Loading...</span>
+          </>
+        ) : (
+          "Sign in"
+        )}
       </button>
-      <p style={{ color: "#ff7790", marginTop: "50px", textAlign: "center" ,display: "none" }}>
+      <p
+        style={{
+          color: "#ff7790",
+          marginTop: "50px",
+          textAlign: "center",
+          display: "none",
+        }}
+      >
         {Error}
       </p>
-  
     </form>
   );
 };

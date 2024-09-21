@@ -3,7 +3,6 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
-
 const RegisterForm = () => {
   const [name, setname] = useState(null);
   const [email, setemail] = useState(null);
@@ -19,26 +18,30 @@ const RegisterForm = () => {
     <form
       onSubmit={async (eo) => {
         eo.preventDefault();
-        setWrongPass(false)
-        setLoading(true)
-        setError(null)
+        setWrongPass(false);
+        setLoading(true);
+        setError(null);
         //inputs empty
         if (!email || !name || !Password) {
           setError("All Input Must be Filled");
-          toast.error("All Input Must be Filled")
-          setLoading(false)
+          toast.error("All Input Must be Filled");
+          setLoading(false);
           return;
         }
 
-
         //strong password
-        const regexPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        const regexPass =
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         if (!regexPass.test(Password)) {
-          setError("Password must be latest 8 characters with 1 Uppercase, 1lowercase, 1special character, 1 numer.");
-          toast.warn("Password must be latest 8 characters with 1 Uppercase, 1lowercase, 1special character, 1 numer.")
-          setWrongPass(true)
-          setLoading(false)
-          return
+          setError(
+            "Password must be latest 8 characters with 1 Uppercase, 1lowercase, 1special character, 1 numer."
+          );
+          toast.warn(
+            "Password must be latest 8 characters with 1 Uppercase, 1lowercase, 1special character, 1 numer."
+          );
+          setWrongPass(true);
+          setLoading(false);
+          return;
         }
 
         // check email
@@ -54,8 +57,8 @@ const RegisterForm = () => {
 
         if (IsUserChek.user) {
           setError("Email Already Exist");
-          toast.error("Email Already Exist")
-          setLoading(false)
+          toast.error("Email Already Exist");
+          setLoading(false);
           return;
         }
 
@@ -70,18 +73,18 @@ const RegisterForm = () => {
 
         //Complete
         if (response.ok) {
-          toast.success('Your Account has been Created Succesfully')
+          toast.success("Your Account has been Created Succesfully");
           // @ts-ignore
           eo.target.reset();
           router.push("/signin");
-          setLoading(false)
+          setLoading(false);
         } else {
           setError("Failed To Creat Account,Please Try Again");
-          toast.error("Failed To Creat Account,Please Try Again")
-          setLoading(false)
+          toast.error("Failed To Creat Account,Please Try Again");
+          setLoading(false);
         }
 
-        setLoading(false)
+        setLoading(false);
       }}
       style={{ textAlign: "left" }}
     >
@@ -120,10 +123,10 @@ const RegisterForm = () => {
           Password
         </label>
         <input
-        style={{backgroundColor: WrongPass ? "#edadad" : null}}
+          style={{ backgroundColor: WrongPass ? "#edadad" : null }}
           onChange={(eo) => {
             setPassword(eo.target.value);
-            setWrongPass(false)
+            setWrongPass(false);
           }}
           required
           type="password"
@@ -131,16 +134,29 @@ const RegisterForm = () => {
           id="exampleInputPassword1"
         />
       </div>
-    
+
       <button type="submit" className="btn btn-primary">
-        {Loading? 
-        <>
-        <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-        <span style={{marginLeft:"5px"}}>Loading...</span>
-        </>
-        : "Create Account"}
+        {Loading ? (
+          <>
+            <span
+              className="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            <span style={{ marginLeft: "5px" }}>Loading...</span>
+          </>
+        ) : (
+          "Create Account"
+        )}
       </button>
-      <p style={{ color: "#ff7790", marginTop: "50px", textAlign: "center" ,display: "none" }}>
+      <p
+        style={{
+          color: "#ff7790",
+          marginTop: "50px",
+          textAlign: "center",
+          display: "none",
+        }}
+      >
         {Error}
       </p>
     </form>

@@ -8,7 +8,9 @@
       {
         "ignore": [
           "scale",
-          "scrollbar-color"
+          "scrollbar-color",
+          "text-wrap",
+          "text-wrap: balance"
         ]
       }
     ]

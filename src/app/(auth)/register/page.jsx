@@ -1,9 +1,6 @@
-
-import Header from 'componatnt/header/header';
-import React from 'react';
-import RegisterForm from './RegisterForm';
-
-
+import Header from "componatnt/header/header";
+import React from "react";
+import RegisterForm from "./RegisterForm";
 
 export const metadata = {
   title: "Register Page",
@@ -13,16 +10,13 @@ export const metadata = {
 const Page = () => {
   return (
     <>
+      <Header isRegister={true} />
 
-    <Header isRegister={true}/>
-
-    <main className="px-3">
-  <RegisterForm />
-</main>
-
-</>
+      <main className="px-3">
+        <RegisterForm />
+      </main>
+    </>
   );
-}
+};
 
 export default Page;
-

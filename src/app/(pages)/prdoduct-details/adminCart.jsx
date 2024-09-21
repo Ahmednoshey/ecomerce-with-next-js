@@ -7,11 +7,16 @@ import { notFound } from 'next/navigation';
 import { toast } from 'react-toastify';
 import { useRouter } from "next/navigation";
 import Link from 'next/link';
+import {useSession } from "next-auth/react";
 
 const AdminCart = ({productId,puplicId}) => {
   const [Loading, setLoading] = useState(false);
   const [Error, setError] = useState(null);
   const router = useRouter();
+  const { data: session, status } = useSession();
+
+if (status=="authenticated" && session.user.email == "ahmed2027@gmail.com") {
+  
   return (
     <div className='flex' style={{ alignItems:"center", justifyContent:"center", marginTop:"3rem"}}>
     <Link href={`/update-product/${productId}`} className="flex update-card">
@@ -56,6 +61,7 @@ const AdminCart = ({productId,puplicId}) => {
       </p>
     </div>
   );
+}
 }
 
 export default AdminCart;

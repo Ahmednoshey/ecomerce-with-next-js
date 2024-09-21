@@ -17,7 +17,6 @@ export async function generateMetadata ({params}) {
   return {
     title: selectproduct.Title,
     description: selectproduct.Description,
-    
   };
 }
 
@@ -42,7 +41,7 @@ const Page = async ({params}) => {
     <main style={{ textAlign: "center"}} className="flex" title={selectproduct.Title}>
 
       <div style={{position:"relative"}} className='img-container'>
-      <Image alt="" src={selectproduct.productImg} fill quality={100}/>
+      <Image alt="" src={selectproduct.productImg} fill quality={100} loading='eager' sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority={true} />
       </div>
       
   <div className="product-details">

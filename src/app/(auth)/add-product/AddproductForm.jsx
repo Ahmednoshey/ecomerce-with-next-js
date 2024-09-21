@@ -1,10 +1,9 @@
 // @ts-nocheck
 
 "use client";
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
-import { toast } from 'react-toastify';
-
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 const AddproductForm = () => {
   const [Title, setTitle] = useState();
@@ -16,55 +15,55 @@ const AddproductForm = () => {
   const [Loading, setLoading] = useState(false);
   const router = useRouter();
   return (
-<form
+    <form
       onSubmit={async (eo) => {
         eo.preventDefault();
-        setLoading(true)
-        setError(null)
+        setLoading(true);
+        setError(null);
 
-          //inputs empty
-          if (!Title || !Price || !Description || !productImg) {
-            setError("All Input Must be Filled");
-            toast.error("All Input Must be Filled")
-            setLoading(false)
-            return;
-          }
-          
-          // send data to DB
-          const formData = new FormData();
-          formData.set("productImg", productImg);
-          formData.set("Title", Title);
-          formData.set("Price", Price);
-          formData.set("Description", Description);
-         
-          const response = await fetch("api/addProduct", {
-            method: "POST",
-            body: formData,
-          });
-    
-      //Complete
-      if (response.ok) {
-        toast.success('Your Product has been Created Succesfully')
-        // @ts-ignore
-        eo.target.reset();
-        router.push("/");
-        setLoading(false)
-      } else {
-        setError("Failed To Creat Product,Please Try Again");
-        toast.error("Failed To Creat Product,Please Try Again")
-        setLoading(false)
-      }
+        //inputs empty
+        if (!Title || !Price || !Description || !productImg) {
+          setError("All Input Must be Filled");
+          toast.error("All Input Must be Filled");
+          setLoading(false);
+          return;
+        }
 
-      setLoading(false)
-    }}
-    style={{ textAlign: "left" }}
+        // send data to DB
+        const formData = new FormData();
+        formData.set("productImg", productImg);
+        formData.set("Title", Title);
+        formData.set("Price", Price);
+        formData.set("Description", Description);
+
+        const response = await fetch("api/addProduct", {
+          method: "POST",
+          body: formData,
+        });
+
+        //Complete
+        if (response.ok) {
+          toast.success("Your Product has been Created Succesfully");
+          // @ts-ignore
+          eo.target.reset();
+          router.push("/");
+          setLoading(false);
+        } else {
+          setError("Failed To Creat Product,Please Try Again");
+          toast.error("Failed To Creat Product,Please Try Again");
+          setLoading(false);
+        }
+
+        setLoading(false);
+      }}
+      style={{ textAlign: "left" }}
     >
       <div className="mb-4">
         <label htmlFor="exampleInputEmail1" className="form-label">
           Product Image
         </label>
         <input
-         onChange={(eo) => setproductImg(eo.target.files[0])}
+          onChange={(eo) => setproductImg(eo.target.files[0])}
           required
           type="file"
           className="form-control"
@@ -79,9 +78,9 @@ const AddproductForm = () => {
         <input
           onChange={(eo) => {
             // @ts-ignore
-            setTitle(eo.target.value)
+            setTitle(eo.target.value);
           }}
-          placeholder='Exxon-Mobil'
+          placeholder="Exxon-Mobil"
           required
           type="text"
           className="form-control"
@@ -96,9 +95,9 @@ const AddproductForm = () => {
         <input
           onChange={(eo) => {
             // @ts-ignore
-            setPrice(eo.target.value)
+            setPrice(eo.target.value);
           }}
-          placeholder='$99.99'
+          placeholder="$99.99"
           required
           type="number"
           className="form-control"
@@ -106,38 +105,49 @@ const AddproductForm = () => {
         />
       </div>
       <div className="mb-4">
-      <label htmlFor="exampleInputPassword1" className="form-label">
+        <label htmlFor="exampleInputPassword1" className="form-label">
           Product Description
         </label>
-          <textarea style={{resize:"none",overflow:"auto"}}
-            onChange={(eo) => {
-              // @ts-ignore
-              setDescription(eo.target.value)
-      }}
-      required
-      placeholder='Product Description'
-      className="form-control"
-      id="exampleInputPassword1"
-      rows={3}
-      />
-
+        <textarea
+          style={{ resize: "none", overflow: "auto" }}
+          onChange={(eo) => {
+            // @ts-ignore
+            setDescription(eo.target.value);
+          }}
+          required
+          placeholder="Product Description"
+          className="form-control"
+          id="exampleInputPassword1"
+          rows={3}
+        />
       </div>
 
-
       <button type="submit" className="btn btn-primary">
-        {Loading? 
-        <>
-        <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-        <span style={{marginLeft:"5px"}}>Loading...</span>
-        </>
-        : "Add product"}
+        {Loading ? (
+          <>
+            <span
+              className="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            <span style={{ marginLeft: "5px" }}>Loading...</span>
+          </>
+        ) : (
+          "Add product"
+        )}
       </button>
-      <p style={{ color: "#ff7790", marginTop: "50px", textAlign: "center" ,display: "none" }}>
+      <p
+        style={{
+          color: "#ff7790",
+          marginTop: "50px",
+          textAlign: "center",
+          display: "none",
+        }}
+      >
         {Error}
       </p>
-  
-    </form> 
+    </form>
   );
-}
+};
 
 export default AddproductForm;

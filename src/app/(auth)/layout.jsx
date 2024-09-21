@@ -16,7 +16,7 @@ const inter = Inter({
 
 export const metadata = {
   icons:{
-    icon: "./images/bag-shopping-solid.svg"
+    icon: "../../../images/bag-shopping-solid.svg"
   },
 };
 

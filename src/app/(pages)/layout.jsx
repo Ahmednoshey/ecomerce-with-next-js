@@ -13,7 +13,7 @@ export const metadata = {
   title: "Home Page",
   description: "Description My Home Page",
   icons:{
-    icon: "./images/bag-shopping-solid.svg"
+    icon: "../../../images/bag-shopping-solid.svg"
   },
 };
 
