@@ -28,7 +28,7 @@ if (status=="authenticated" && session.user.email == "ahmed2027@gmail.com") {
             setLoading(true)
             setError(null)
           //send data to api router
-        const response = await fetch("http://localhost:3000/api/deleteOne-product", {
+        const response = await fetch("https://ecomerce-with-next-js.vercel.app/api/deleteOne-product", {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

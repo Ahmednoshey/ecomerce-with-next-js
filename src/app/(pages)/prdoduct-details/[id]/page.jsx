@@ -9,7 +9,7 @@ import { notFound } from 'next/navigation';
 import AdminCart from '../adminCart';
 
 export async function generateMetadata ({params}) {
-  let data = await fetch(`http://localhost:3000/api/getOne-product?id=${params.id}`)
+  let data = await fetch(`https://ecomerce-with-next-js.vercel.app/api/getOne-product?id=${params.id}`)
   if (!data.ok) {
     notFound();
   }
@@ -22,7 +22,7 @@ export async function generateMetadata ({params}) {
 
  
 const Page = async ({params}) => {
-  let data = await fetch(`http://localhost:3000/api/getOne-product?id=${params.id}`)
+  let data = await fetch(`https://ecomerce-with-next-js.vercel.app/api/getOne-product?id=${params.id}`)
   if (!data.ok) {
     notFound();
   }

@@ -16,7 +16,7 @@ const AddproductForm = ({ productId }) => {
   useEffect(() => {
     const getdata = async (productId) => {
       let data = await fetch(
-        `http://localhost:3000/api/getOne-product?id=${productId}`
+        `https://ecomerce-with-next-js.vercel.app/api/getOne-product?id=${productId}`
       );
       if (!data.ok) {
         notFound();
@@ -47,7 +47,7 @@ const AddproductForm = ({ productId }) => {
 
         // send data to DB
         const response = await fetch(
-          "http://localhost:3000/api/updateproduct",
+          "https://ecomerce-with-next-js.vercel.app/api/updateproduct",
           {
             method: "PUT",
             headers: {

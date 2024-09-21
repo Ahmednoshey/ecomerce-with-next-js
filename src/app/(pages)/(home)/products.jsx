@@ -10,7 +10,7 @@ const Products = () => {
 
   useEffect(() => {
     const getdata = async () => {
-      let data = await fetch("http://localhost:3000/api/getAll-products");
+      let data = await fetch("https://ecomerce-with-next-js.vercel.app/api/getAll-products");
       if (!data.ok) {
         notFound();
       }
